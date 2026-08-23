@@ -132,8 +132,8 @@
       "lifecycle": "active",
       "description_fr": "Réseau, flotte, diagnostic.",
       "description_en": "Network, fleet, diagnostics.",
-      "version": "1.3.3",
-      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Reseau-Linux/releases/download/v1.3.3/org.mraurevox.HubReseau.flatpak",
+      "version": "1.3.4",
+      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Reseau-Linux/releases/download/v1.3.4/org.mraurevox.HubReseau.flatpak",
       "release_repo": "Mr-Aurevo-X/Hub-Reseau-Linux",
       "data_paths": [
         "~/.config/Mr-Aurevo-X/hubs/reseau"
