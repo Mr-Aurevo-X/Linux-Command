@@ -4,7 +4,7 @@
     "id": "mr-aurevo-x-linux",
     "name": "Mr-Aurevo-X Linux Platform",
     "commander_app": "org.mraurevox.LinuxCommand",
-    "windows_pairing": "PC Command",
+    "windows_pairing": "Linux uniquement",
     "updated": "2026-08-23"
   },
   "hubs": [
@@ -171,28 +171,13 @@
       "name": "Hub Dev",
       "role": "dev",
       "lifecycle": "active",
-      "description_fr": "Loopback intégré (ex-LocalDock), JSON, .env, snippets, diff.",
-      "description_en": "Integrated loopback (ex-LocalDock), JSON, .env, snippets, diff.",
+      "description_fr": "Explorateur localhost, JSON, .env, snippets, diff.",
+      "description_en": "Localhost explorer, JSON, .env, snippets, diff.",
       "version": "1.0.0",
       "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Dev-Linux/releases/download/v1.0.0/org.mraurevox.HubDev.flatpak",
       "release_repo": "Mr-Aurevo-X/Hub-Dev-Linux",
       "data_paths": ["~/.config/Mr-Aurevo-X/hubs/dev"],
       "launch": "flatpak run org.mraurevox.HubDev",
-      "show_in_grid": false
-    },
-    {
-      "id": "org.mraurevox.LocalDock",
-      "hub": "dev",
-      "name": "LocalDock",
-      "role": "dev",
-      "lifecycle": "deprecated",
-      "description_fr": "Deprecated — utiliser Hub Dev.",
-      "description_en": "Deprecated — use Hub Dev.",
-      "version": "0.1.0",
-      "flatpak_url": "https://github.com/Mr-Aurevo-X/LocalDock/releases/latest/download/org.mraurevox.LocalDock.flatpak",
-      "release_repo": "Mr-Aurevo-X/LocalDock",
-      "data_paths": ["~/.var/app/org.mraurevox.LocalDock"],
-      "launch": "flatpak run org.mraurevox.LocalDock",
       "show_in_grid": false
     }
   ],

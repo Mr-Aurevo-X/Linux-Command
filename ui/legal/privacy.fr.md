@@ -1,25 +1,27 @@
-Politique de confidentialité / RGPD — LocalDock
-Éditeur : Mr-Aurevo-X · Produit : LocalDock
+# Politique de confidentialité / RGPD — Linux Command
+
+Éditeur : Mr-Aurevo-X · Produit : Linux Command  
 Copyright © 2026 Mr-Aurevo-X. Tous droits réservés.
 
-1. Collecte par l’éditeur : aucune
-Mr-Aurevo-X ne collecte pas de données personnelles sur ses serveurs. Pas de tracker analytics, pas de télémétrie crash, pas de compte utilisateur.
+## 1. Collecte par l’éditeur : aucune
 
-Sans collecte ni transmission vers un serveur Mr-Aurevo-X, les droits RGPD qui supposent un fichier côté éditeur ne s’appliquent pas. Vous pouvez désinstaller et supprimer les réglages locaux à tout moment.
+Pas de télémétrie, pas de tracker, pas de compte. Mr-Aurevo-X ne reçoit aucune donnée personnelle via cette application.
 
-2. Architecture local-first
-Exécution locale (Rust / Tauri + WebView). Registre Windows : %APPDATA%\LocalDock\apps.json. Linux natif : ~/.config/LocalDock/. Flatpak : ~/.var/app/org.mraurevox.LocalDock/config/LocalDock/. Préférences : %LOCALAPPDATA%\Mr-Aurevo-X\user-settings.json (Windows), ~/.config/Mr-Aurevo-X/ (natif) ou ~/.var/app/org.mraurevox.LocalDock/config/Mr-Aurevo-X/ (Flatpak).
+## 2. Architecture locale
 
-LocalDock n’ouvre pas de port d’écoute et n’a pas de portail HTTP. Les processus enfants que vous démarrez peuvent utiliser le réseau pour leurs propres besoins.
+Exécution locale (Rust / Tauri + WebKitGTK). Données : `~/.config/Mr-Aurevo-X/` et le dossier de l’application. Vous pouvez tout supprimer à tout moment.
 
-3. Exceptions réseau (pas de télémétrie éditeur)
-- Vérif. optionnelle GitHub Latest (toggle dans À propos) — lecture seule, pas de téléchargement.
-- Boutons Discord / PayPal / Revolut : sites de ces opérateurs.
-- Ouverture d’un serveur enfant en loopback dans le navigateur, sur action utilisateur.
+Linux Command n’ouvre pas de portail HTTP. Les hubs lancés restent des processus locaux.
 
-4. Liens de soutien
-Un clic Discord / PayPal / Revolut quitte l’app. Politiques de confidentialité de ces services.
+## 3. Réseau
 
-5. Contact
-GitHub : https://github.com/Mr-Aurevo-X/LocalDock
-Discord (facultatif) : https://discord.com/users/406891052516114442
+- Vérif. optionnelle GitHub Latest (toggle dans À propos) — lecture seule, pas de téléchargement automatique.
+- Boutons Discord / PayPal / Revolut : sites de ces opérateurs, sur clic.
+
+## 4. Droit applicable
+
+RGPD et droit belge.
+
+## 5. Contact
+
+GitHub : https://github.com/Mr-Aurevo-X/Linux-Command

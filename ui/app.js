@@ -20,7 +20,7 @@ const els = {
   profileRow: document.querySelector("#profileRow"),
   btnProfileHubs: document.querySelector("#btnProfileHubs"),
   btnProfileCommander: document.querySelector("#btnProfileCommander"),
-  windowsPairing: document.querySelector("#windowsPairing"),
+  platformEdition: document.querySelector("#platformEdition"),
   kpiHubsActive: document.querySelector("#kpiHubsActive"),
   kpiAppsInstalled: document.querySelector("#kpiAppsInstalled"),
   kpiCatalogVer: document.querySelector("#kpiCatalogVer"),
@@ -130,7 +130,16 @@ function renderKpis() {
   els.kpiHubsActive.textContent = String(activeHubs);
   els.kpiAppsInstalled.textContent = String(installed);
   els.kpiCatalogVer.textContent = state.snapshot?.catalog_updated || "—";
-  els.windowsPairing.textContent = state.snapshot?.platform?.windows_pairing || "PC Command";
+  if (els.platformEdition) {
+    els.platformEdition.textContent = state.snapshot?.platform?.windows_pairing || "Linux uniquement";
+  }
+}
+
+function applyTitlebar() {
+  const title = `Linux Command ${state.version}`;
+  const el = document.getElementById("toolTitleText");
+  if (el) el.textContent = title;
+  document.title = title;
 }
 
 async function onHubTileClick(hub) {
@@ -222,6 +231,7 @@ async function loadAbout() {
   state.settings = await call("get_suite_settings");
   state.aboutPaths = await call("get_about_local_paths");
   els.aboutVersion.textContent = t("aboutVersion", { ver: state.version });
+  applyTitlebar();
   if (els.chkGithubUpdates) els.chkGithubUpdates.checked = Boolean(state.settings.checkGithubUpdates);
   if (els.aboutUpdateHint) {
     els.aboutUpdateHint.textContent = state.settings.checkGithubUpdates ? t("aboutHintOn") : t("aboutHintOff");
@@ -300,6 +310,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+  applyTitlebar();
+  call("get_app_version", {}, { silent: true })
+    .then((ver) => {
+      if (ver) state.version = ver;
+      applyTitlebar();
+    })
+    .catch(() => {});
   loadSnapshot()
     .then(() => loadProfiles())
     .then(() => checkUpdates())

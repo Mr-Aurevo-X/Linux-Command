@@ -1,15 +1,17 @@
-Mentions légales — LocalDock
-Produit : LocalDock
-Éditeur : Mr-Aurevo-X
+# Mentions légales — Linux Command
+
+Produit : Linux Command  
+Éditeur : Mr-Aurevo-X  
 Copyright © 2026 Mr-Aurevo-X. Tous droits réservés.
 
-« LocalDock » désigne cette application. « Mr-Aurevo-X » désigne l’éditeur.
+« Linux Command » désigne cette application. « Mr-Aurevo-X » désigne l’éditeur.
 
-Chaque fenêtre peut afficher : « © 2026 Mr-Aurevo-X ». Le détail (CGU, confidentialité, licences) est dans À propos.
+Le détail (CGU, confidentialité, licences) est dans À propos.
 
-Contact / dépôt : https://github.com/Mr-Aurevo-X/LocalDock
-Hébergement des releases : GitHub (Microsoft)
+Contact / dépôt : https://github.com/Mr-Aurevo-X/Linux-Command
 
-Logiciel fourni 100 % gratuitement pour un usage non commercial (LICENSE), sans mise à jour automatique et sans engagement de versions futures.
+Logiciel fourni pour un usage non commercial (`LICENSE`), sans mise à jour automatique.
 
-Soutien facultatif (un clic quitte l’app) : Discord, PayPal, Revolut.
+Soutien facultatif : Discord, PayPal, Revolut.
+
+Droit belge.

@@ -1,25 +1,27 @@
-Privacy Policy / GDPR — LocalDock
-Publisher: Mr-Aurevo-X · Product: LocalDock
+# Privacy Policy / GDPR — Linux Command
+
+Publisher: Mr-Aurevo-X · Product: Linux Command  
 Copyright © 2026 Mr-Aurevo-X. All rights reserved.
 
-1. Publisher collection: none
-Mr-Aurevo-X does not collect personal data on its servers. No analytics tracker, no crash-reporting telemetry, no user account.
+## 1. Publisher collection: none
 
-Because the publisher does not gather or transmit personal data to any Mr-Aurevo-X server, GDPR rights that assume a publisher-side filing do not apply. You may uninstall and delete local settings anytime.
+No telemetry, no tracker, no account. Mr-Aurevo-X receives no personal data through this application.
 
-2. Local-first architecture
-Local execution (Rust / Tauri + WebView). Windows registry: %APPDATA%\LocalDock\apps.json. Linux native: ~/.config/LocalDock/. Flatpak: ~/.var/app/org.mraurevox.LocalDock/config/LocalDock/. Prefs: %LOCALAPPDATA%\Mr-Aurevo-X\user-settings.json (Windows), ~/.config/Mr-Aurevo-X/ (native) or ~/.var/app/org.mraurevox.LocalDock/config/Mr-Aurevo-X/ (Flatpak).
+## 2. Local architecture
 
-LocalDock itself opens no listen port and has no HTTP portal. Child processes you start may use the network for their own needs.
+Local execution (Rust / Tauri + WebKitGTK). Data: `~/.config/Mr-Aurevo-X/` and the app folder. You may delete it anytime.
 
-3. Network exceptions (not publisher telemetry)
-- Optional GitHub Latest check (toggle in About) — read-only, no download.
-- Discord / PayPal / Revolut buttons: those operators’ sites.
-- Opening a child loopback server in the browser, on user action.
+Linux Command opens no HTTP portal. Launched hubs stay local processes.
 
-4. Support links
-Opening Discord / PayPal / Revolut leaves the app. Those services’ privacy policies apply.
+## 3. Network
 
-5. Contact
-GitHub: https://github.com/Mr-Aurevo-X/LocalDock
-Discord (optional): https://discord.com/users/406891052516114442
+- Optional GitHub Latest check (toggle in About) — read-only, no automatic download.
+- Discord / PayPal / Revolut buttons: those operators’ sites, on click.
+
+## 4. Governing law
+
+GDPR and Belgian law.
+
+## 5. Contact
+
+GitHub: https://github.com/Mr-Aurevo-X/Linux-Command
