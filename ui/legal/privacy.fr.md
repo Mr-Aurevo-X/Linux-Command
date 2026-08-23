@@ -9,7 +9,7 @@ Pas de télémétrie, pas de tracker, pas de compte. Mr-Aurevo-X ne reçoit aucu
 
 ## 2. Architecture locale
 
-Exécution locale (Rust / Tauri + WebKitGTK). Données : `~/.config/Mr-Aurevo-X/` et le dossier de l’application. Vous pouvez tout supprimer à tout moment.
+Exécution locale (Rust / Tauri + WebKitGTK). Données : `~/.config/Mr-Aurevo-X/` et `~/.local/share/linux-command/`. Vous pouvez tout supprimer à tout moment.
 
 Linux Command n’ouvre pas de portail HTTP. Les hubs lancés restent des processus locaux.
 

@@ -30,7 +30,7 @@ Discord, PayPal, and Revolut links are **voluntary**. Donations do not buy suppo
 
 ## 6. Closed inner-source
 
-Public repositories are **read-only distributions**. Pull requests and external issues are not accepted.
+This repository is **private**. If it is opened later, it will be a **read-only distribution**. Pull requests and external issues are not accepted.
 
 ## 7. Governing law
 

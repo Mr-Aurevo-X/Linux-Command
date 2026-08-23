@@ -6,10 +6,12 @@
   <description>
     <p>
       Linux Command affiche une grille de hubs modulaires (Système, Réseau, Sécurité,
-      Utilitaires, Dev). Chaque hub est un Flatpak indépendant — le commander est optionnel.
+      Utilitaires, Dev) avec le statut d’install et la version de chaque hub.
+      Chaque hub est une app indépendante (Flatpak ou install locale) — le commander est optionnel.
     </p>
     <p>
-      Clic sur un hub installé : lancement. Non installé : commande flatpak install copier-coller.
+      Clic sur un hub installé : lancement (Flatpak ou ~/.local/bin). Non installé : commande
+      flatpak install copier-coller, ou bouton Installer (action explicite).
       Aucune mise à jour automatique silencieuse.
     </p>
   </description>

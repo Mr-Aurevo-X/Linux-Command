@@ -30,7 +30,7 @@ Liens Discord, PayPal, Revolut : **volontaires**. Un don n’achète ni support 
 
 ## 6. Inner-source fermé
 
-Les dépôts publics sont des **distributions en lecture seule**. Pas de PR, pas d’issues externes.
+Ce dépôt est **privé**. S’il devient public, ce sera une **distribution en lecture seule**. Pas de PR, pas d’issues externes.
 
 ## 7. Droit applicable
 

@@ -9,7 +9,7 @@ No telemetry, no tracker, no account. Mr-Aurevo-X receives no personal data thro
 
 ## 2. Local architecture
 
-Local execution (Rust / Tauri + WebKitGTK). Data: `~/.config/Mr-Aurevo-X/` and the app folder. You may delete it anytime.
+Local execution (Rust / Tauri + WebKitGTK). Data: `~/.config/Mr-Aurevo-X/` and `~/.local/share/linux-command/`. You may delete it anytime.
 
 Linux Command opens no HTTP portal. Launched hubs stay local processes.
 

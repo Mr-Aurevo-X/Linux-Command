@@ -2,8 +2,8 @@
 Type=Application
 Version=1.0
 Name=Linux Command
-Comment=Poste de commandement Mr-Aurevo-X — hubs Flatpak
-Comment[en]=Mr-Aurevo-X command center — Flatpak hubs
+Comment=Poste de commandement Mr-Aurevo-X — hubs locaux ou Flatpak
+Comment[en]=Mr-Aurevo-X command center — local or Flatpak hubs
 Exec=linux-command
 Icon=org.mraurevox.LinuxCommand
 Terminal=false

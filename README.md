@@ -91,6 +91,12 @@ flatpak install --user -y ./org.mraurevox.LinuxCommand.flatpak
 bash LANCER.sh
 ```
 
+WIP copy (hubs + commander), from this repo’s sibling:
+
+```bash
+bash "../linux-platform/scripts/install-local-wip.sh" --with-commander
+```
+
 ### Privacy
 
 Local-first. Data: `~/.config/Mr-Aurevo-X/` and `~/.local/share/linux-command/`.  
@@ -110,6 +116,7 @@ Texts: `ui/legal/` and `LICENSE`.
 ## v0.2.0
 
 - Première release plateforme : grille de hubs, catalogue, install copier-coller
+- **Pas d’asset Flatpak** sur ce tag — utiliser [v0.2.1](https://github.com/Mr-Aurevo-X/Linux-Command/releases/tag/v0.2.1)
 
 ---
 
