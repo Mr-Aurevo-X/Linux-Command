@@ -174,8 +174,8 @@
       "description_fr": "Loopback intégré (ex-LocalDock), formats dev à venir.",
       "description_en": "Integrated loopback (ex-LocalDock), dev formats coming.",
       "version": "1.0.0",
-      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Dev/releases/download/v1.0.0/org.mraurevox.HubDev.flatpak",
-      "release_repo": "Mr-Aurevo-X/Hub-Dev",
+      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Dev-Linux/releases/download/v1.0.0/org.mraurevox.HubDev.flatpak",
+      "release_repo": "Mr-Aurevo-X/Hub-Dev-Linux",
       "data_paths": ["~/.config/Mr-Aurevo-X/hubs/dev"],
       "launch": "flatpak run org.mraurevox.HubDev",
       "show_in_grid": false
