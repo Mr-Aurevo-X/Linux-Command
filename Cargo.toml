@@ -1,0 +1,8 @@
+[workspace]
+resolver = "2"
+members = ["crates/linux-command-core", "src-tauri"]
+
+[workspace.package]
+edition = "2021"
+license = "PolyForm-Noncommercial-1.0.0"
+version = "0.2.0"

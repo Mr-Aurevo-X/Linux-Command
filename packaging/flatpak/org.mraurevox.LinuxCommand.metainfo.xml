@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.mraurevox.LinuxCommand</id>
+  <name>Linux Command</name>
+  <summary>Poste de commandement optionnel pour la plateforme Mr-Aurevo-X Linux</summary>
+  <description>
+    <p>
+      Linux Command affiche une grille de hubs modulaires (Système, Réseau, Sécurité,
+      Utilitaires, Dev). Chaque hub est un Flatpak indépendant — le commander est optionnel.
+    </p>
+    <p>
+      Clic sur un hub installé : lancement. Non installé : commande flatpak install copier-coller.
+      Aucune mise à jour automatique silencieuse.
+    </p>
+  </description>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LicenseRef-PolyForm-Noncommercial-1.0.0</project_license>
+  <developer id="org.mraurevox">
+    <name>Mr-Aurevo-X</name>
+  </developer>
+  <url type="homepage">https://github.com/Mr-Aurevo-X/Linux-Command</url>
+  <launchable type="desktop-id">org.mraurevox.LinuxCommand.desktop</launchable>
+  <categories>
+    <category>System</category>
+    <category>Utility</category>
+  </categories>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.2.0" date="2026-08-23"/>
+  </releases>
+</component>

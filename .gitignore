@@ -1,0 +1,9 @@
+/target/
+**/*.rs.bk
+.DS_Store
+.cursor/*
+!.cursor/rules/
+!.cursor/rules/**
+*.log
+.env
+.env.*

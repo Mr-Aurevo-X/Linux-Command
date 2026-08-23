@@ -1,0 +1,49 @@
+app-id: org.mraurevox.LinuxCommand
+runtime: org.gnome.Platform
+runtime-version: "49"
+sdk: org.gnome.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.rust-stable
+  - org.freedesktop.Sdk.Extension.node20
+command: linux-command
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=x11
+  - --socket=wayland
+  - --device=dri
+  - --env=GDK_BACKEND=x11
+  - --env=WEBKIT_DISABLE_DMABUF_RENDERER=1
+  - --env=WEBKIT_DISABLE_COMPOSITING_MODE=1
+  - --unset-env=GTK_MODULES
+  - --unset-env=GTK3_MODULES
+  - --filesystem=home
+  - --filesystem=xdg-config/Mr-Aurevo-X:create
+  - --filesystem=xdg-data/linux-command:create
+  - --talk-name=org.freedesktop.Flatpak
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.freedesktop.portal.Desktop
+  - --socket=session-bus
+modules:
+  - name: linux-command
+    buildsystem: simple
+    build-options:
+      build-args:
+        - --share=network
+      append-path: /usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/node20/bin
+      env:
+        CARGO_HOME: /run/build/linux-command/cargo
+    build-commands:
+      - cargo build --release -p linux-command
+      - install -Dm755 target/release/linux-command ${FLATPAK_DEST}/bin/linux-command
+      - install -Dm644 packaging/flatpak/org.mraurevox.LinuxCommand.desktop
+        ${FLATPAK_DEST}/share/applications/org.mraurevox.LinuxCommand.desktop
+      - install -Dm644 packaging/flatpak/org.mraurevox.LinuxCommand.metainfo.xml
+        ${FLATPAK_DEST}/share/metainfo/org.mraurevox.LinuxCommand.metainfo.xml
+      - install -Dm644 packaging/flatpak/org.mraurevox.LinuxCommand.svg
+        ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/org.mraurevox.LinuxCommand.svg
+      - install -Dm644 packaging/flatpak/org.mraurevox.LinuxCommand.png
+        ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/org.mraurevox.LinuxCommand.png
+    sources:
+      - type: dir
+        path: ../..

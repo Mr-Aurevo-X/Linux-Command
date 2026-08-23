@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Linux Command
+Comment=Poste de commandement Mr-Aurevo-X — hubs Flatpak
+Comment[en]=Mr-Aurevo-X command center — Flatpak hubs
+Exec=linux-command
+Icon=org.mraurevox.LinuxCommand
+Terminal=false
+Categories=System;Utility;
+StartupNotify=true
+StartupWMClass=Linux Command

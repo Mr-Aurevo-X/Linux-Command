@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr" data-preset="void-glow">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Mr-Aurevo-X" />
+    <title>Linux Command</title>
+    <link rel="stylesheet" href="vendor/pc-command-kit/components/tool-chrome.css" />
+    <link rel="stylesheet" href="vendor/pc-command-kit/components/hub-about.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="i18n.js"></script>
+    <script defer src="chrome.js"></script>
+    <script defer src="app.js"></script>
+  </head>
+  <body class="theme-void-glow frameless" data-tool-title="Linux Command" data-tool-subtitle="">
+    <header class="tool-titlebar" id="toolTitlebar" data-tauri-drag-region>
+      <div class="tool-title" id="toolTitleText" data-tauri-drag-region>Linux Command</div>
+      <div class="win-controls text" role="group" aria-label="Fenêtre">
+        <button type="button" class="win-btn" id="toolWinMin" title="Réduire" aria-label="Réduire">min</button>
+        <button type="button" class="win-btn" id="toolWinMax" title="Agrandir" aria-label="Agrandir">max</button>
+        <button type="button" class="win-btn win-close" id="toolWinClose" title="Fermer" aria-label="Fermer">close</button>
+      </div>
+    </header>
+
+    <main class="shell">
+      <div class="update-banner" id="updateBanner" hidden role="status" aria-live="polite">
+        <div class="update-banner-text">
+          <strong data-i18n="updateTitle">Nouvelle version disponible</strong>
+          <span id="updateDetail"></span>
+        </div>
+        <div class="update-banner-actions">
+          <button type="button" class="accent" id="btnOpenRelease" data-i18n="btnOpenRelease">Ouvrir sur GitHub</button>
+          <button type="button" id="btnUpdateLater" data-i18n="btnLater">Plus tard</button>
+        </div>
+      </div>
+
+      <!-- HOME: hub tiles -->
+      <section class="view" id="view-home">
+        <header class="hero">
+          <div>
+            <p class="eyebrow" data-i18n="eyebrow">Mr-Aurevo-X Linux Platform</p>
+            <h1>Linux Command</h1>
+            <p class="lede" data-i18n="lede">
+              Poste de commandement local — hubs virtuels, apps Flatpak, même logique que PC Command sur Windows.
+            </p>
+          </div>
+          <div class="status-card">
+            <span class="label" data-i18n="pairingLabel">Appairage Windows</span>
+            <strong id="windowsPairing">PC Command</strong>
+            <p class="registry-hint" data-i18n="pairingHint">
+              Les hubs Système, Réseau, Sécurité et Utilitaires reflètent la structure PC Command.
+            </p>
+          </div>
+        </header>
+
+        <div class="home-kpis" id="homeKpis">
+          <article class="kpi-card">
+            <span class="kpi-value" id="kpiHubsActive">0</span>
+            <span class="kpi-label" data-i18n="kpiHubsActive">Hubs actifs</span>
+          </article>
+          <article class="kpi-card">
+            <span class="kpi-value" id="kpiAppsInstalled">0</span>
+            <span class="kpi-label" data-i18n="kpiAppsInstalled">Apps installées</span>
+          </article>
+          <article class="kpi-card">
+            <span class="kpi-value" id="kpiCatalogVer">—</span>
+            <span class="kpi-label" data-i18n="kpiCatalog">Catalogue</span>
+          </article>
+        </div>
+
+        <section class="panel">
+          <div class="panel-head">
+            <div>
+              <h2 data-i18n="hubsTitle">Hubs</h2>
+              <p data-i18n="hubsHelp">Choisis un hub pour voir et lancer les apps. Les hubs « bientôt » sont déjà réservés dans la structure finale.</p>
+            </div>
+            <button type="button" id="btnRefresh" data-i18n="refresh">Actualiser</button>
+          </div>
+          <div class="hub-grid" id="hubGrid"></div>
+        </section>
+      </section>
+
+      <footer class="chrome-foot">
+        <div class="hub-lang-switch" id="langSwitch" role="group" data-i18n-aria="langSwitchAria" aria-label="Langue">
+          <button type="button" class="hub-lang-seg is-active" data-lang="fr" aria-pressed="true">FR</button>
+          <button type="button" class="hub-lang-seg" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <p class="privacy-note" data-i18n="privacy">
+          100 % local-first. Seule connexion hors machine : vérif. version GitHub (si activée dans À propos).
+        </p>
+        <div class="hub-support" data-i18n-aria="supportAria" aria-label="Soutien optionnel">
+          <p class="hub-support-note" data-i18n="supportNote">Si le boulot te plaît, un café — sinon profite.</p>
+          <div class="hub-support-links">
+            <button type="button" class="hub-support-btn" data-support="discord">Discord</button>
+            <button type="button" class="hub-support-btn" data-support="paypal">PayPal</button>
+            <button type="button" class="hub-support-btn" data-support="revolut">Revolut</button>
+          </div>
+        </div>
+        <button type="button" class="about-btn" id="btnAbout" data-i18n="aboutBtn">À propos</button>
+        <p class="copyright" data-i18n="aboutCopyright">Copyright © 2026 Mr-Aurevo-X — tous droits réservés</p>
+      </footer>
+
+      <p id="message" class="message" role="status"></p>
+    </main>
+
+    <dialog id="installDialog" class="confirm-dialog">
+      <form method="dialog" class="confirm-card">
+        <h3 id="installTitle" data-i18n="installTitle">Installer le hub</h3>
+        <p id="installBody"></p>
+        <pre class="install-cmd" id="installCmd"></pre>
+        <div class="card-actions">
+          <button type="button" id="btnCopyInstall" data-i18n="aboutCopy">Copier</button>
+          <button type="button" id="btnRunInstall" class="accent" data-i18n="btnInstall">Installer</button>
+          <button value="cancel" type="submit" data-i18n="confirmCancel">Fermer</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="aboutDialog" class="about-dialog">
+      <form method="dialog" class="about-card">
+        <h3 data-i18n="aboutTitle">À propos — Linux Command</h3>
+        <p data-i18n="aboutIntro">
+          Poste de commandement Mr-Aurevo-X pour Linux — navigation par hubs, lancement Flatpak, structure alignée sur PC Command.
+        </p>
+        <ul class="legal-strip">
+          <li data-i18n="aboutLegalLocal">100 % local-first — pas de télémétrie</li>
+          <li data-i18n="aboutLegalGh">Seule connexion hors machine : vérif. version GitHub (option ci-dessous)</li>
+          <li data-i18n="aboutLegalOff">Si vérif. désactivée : zéro réseau hors actions utilisateur</li>
+        </ul>
+        <p class="about-note" id="aboutVersion"></p>
+        <label class="about-toggle">
+          <input type="checkbox" id="chkGithubUpdates" checked />
+          <span data-i18n="aboutToggle">Vérifier les nouvelles versions sur GitHub</span>
+        </label>
+        <p class="about-note" id="aboutUpdateHint" data-i18n="aboutHintOn"></p>
+        <div class="about-repo" aria-label="Dépôt GitHub">
+          <label class="about-repo-label" for="aboutRepoUrl" data-i18n="aboutRepoLabel">Repo GitHub (releases)</label>
+          <div class="about-repo-row">
+            <input type="text" id="aboutRepoUrl" class="about-repo-input" readonly value="https://github.com/Mr-Aurevo-X/Linux-Command" spellcheck="false" />
+            <button type="button" class="btn accent" id="btnCopyRepo" data-i18n="aboutCopy">Copier</button>
+          </div>
+          <p class="about-note" id="aboutCopyHint" hidden data-i18n="aboutCopiedLink">Lien copié.</p>
+        </div>
+        <div class="about-paths" id="aboutPaths" data-i18n-aria="aboutPathsAria" aria-label="Chemins locaux">
+          <p class="about-repo-label" data-i18n="aboutPathsTitle">Chemins locaux</p>
+          <p class="about-note" data-i18n="aboutPathsIntro">Préférences Mr-Aurevo-X partagées entre apps. Override catalogue optionnel en dev.</p>
+          <div class="about-paths-list" id="aboutPathsList"></div>
+        </div>
+        <div class="about-legal-links" role="group" data-i18n-aria="aboutLegalAria" aria-label="Documents légaux">
+          <button type="button" class="btn ghost" data-legal="terms" data-i18n="aboutLegalTerms">CGU</button>
+          <button type="button" class="btn ghost" data-legal="privacy" data-i18n="aboutLegalPrivacy">Confidentialité</button>
+          <button type="button" class="btn ghost" data-legal="mentions" data-i18n="aboutLegalMentions">Mentions</button>
+          <button type="button" class="btn ghost" data-legal="notices" data-i18n="aboutLegalNotices">Notices</button>
+        </div>
+        <pre class="about-legal-body" id="aboutLegalBody" hidden></pre>
+        <p class="copyright" data-i18n="aboutCopyright">Copyright © 2026 Mr-Aurevo-X — tous droits réservés</p>
+        <button type="submit" class="btn accent" data-i18n="aboutClose">Fermer</button>
+      </form>
+    </dialog>
+  </body>
+</html>
