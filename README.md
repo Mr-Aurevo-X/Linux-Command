@@ -28,7 +28,7 @@ bash LANCER.sh
 
 ### Confidentialité
 
-100 % local-first. Seule connexion optionnelle : vérification de version GitHub (lecture seule). Pas de télémétrie.
+Local-first, pas de télémétrie. GitHub : vérif. versions (option) et téléchargement `.flatpak` si vous cliquez Installer.
 
 ---
 
@@ -41,7 +41,7 @@ Optional commander (Tauri) — hub grid, copy-paste install, GitHub version chec
 
 ### Privacy
 
-100% local-first. Optional read-only GitHub release check. No telemetry.
+Local-first, no telemetry. GitHub: optional version check, and a `.flatpak` download if you click Install.
 
 ---
 

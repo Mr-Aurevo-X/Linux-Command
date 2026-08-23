@@ -12,9 +12,9 @@ Usage **non commercial** gratuit selon `LICENSE`. Revente, encapsulage payant, S
 
 Conserver les mentions de copyright. Ne pas retirer les textes À propos / légaux.
 
-## 2. Aucune mise à jour automatique
+## 2. Aucune installation silencieuse
 
-Le logiciel est livré autonome. L’éditeur n’a **aucune obligation** de versions futures. Pas d’installation automatique in-app : une notification peut afficher un lien GitHub ; vous copiez-collez la commande vous-même.
+Le logiciel est livré autonome. L’éditeur n’a **aucune obligation** de versions futures. Pas d’install automatique au démarrage : une notification peut afficher un lien GitHub et des commandes à copier-coller. Le bouton **Installer**, si vous le cliquez, télécharge un `.flatpak` GitHub puis l’installe — action explicite.
 
 ## 3. « En l’état »
 

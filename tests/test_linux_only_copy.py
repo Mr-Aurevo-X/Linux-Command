@@ -40,6 +40,10 @@ def test_user_facing_copy_has_no_windows_product_refs() -> None:
 
 def test_legal_is_linux_command_and_belgian() -> None:
     terms = (ROOT / "ui" / "legal" / "terms.fr.md").read_text(encoding="utf-8")
+    privacy = (ROOT / "ui" / "legal" / "privacy.fr.md").read_text(encoding="utf-8")
     assert "Linux Command" in terms
     assert "LocalDock" not in terms
     assert "belge" in terms.lower() or "Belgique" in terms
+    assert "flatpak" in privacy.lower()
+    assert "Installer" in privacy
+    assert "téléchargement automatique" not in privacy

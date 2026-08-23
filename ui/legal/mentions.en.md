@@ -10,7 +10,7 @@ Details (terms, privacy, licenses) live in About.
 
 Contact / repo: https://github.com/Mr-Aurevo-X/Linux-Command
 
-Software is free for non-commercial use (`LICENSE`), with no automatic updater.
+Software is free for non-commercial use (`LICENSE`), with no silent installer. Clicking Install may download a GitHub `.flatpak`.
 
 Optional support: Discord, PayPal, Revolut.
 

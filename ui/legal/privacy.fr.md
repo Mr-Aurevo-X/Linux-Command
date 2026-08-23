@@ -15,8 +15,9 @@ Linux Command n’ouvre pas de portail HTTP. Les hubs lancés restent des proces
 
 ## 3. Réseau
 
-- Vérif. optionnelle GitHub Latest (toggle dans À propos) — lecture seule, pas de téléchargement automatique.
-- Boutons Discord / PayPal / Revolut : sites de ces opérateurs, sur clic.
+- Vérif. optionnelle GitHub Latest (toggle dans À propos, **activée par défaut**) — un appel API au démarrage, lecture seule, pas d’install silencieuse.
+- Bouton **Installer** : télécharge un `.flatpak` depuis une release `github.com/Mr-Aurevo-X/…` puis lance `flatpak install` — **action explicite**, pas automatique.
+- Boutons Discord / PayPal / Revolut et « Ouvrir la release » : sites de ces opérateurs, sur clic.
 
 ## 4. Droit applicable
 

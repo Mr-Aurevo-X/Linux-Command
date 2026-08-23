@@ -15,8 +15,9 @@ Linux Command opens no HTTP portal. Launched hubs stay local processes.
 
 ## 3. Network
 
-- Optional GitHub Latest check (toggle in About) — read-only, no automatic download.
-- Discord / PayPal / Revolut buttons: those operators’ sites, on click.
+- Optional GitHub Latest check (toggle in About, **on by default**) — one API call at startup, read-only, no silent install.
+- **Install** button: downloads a `.flatpak` from a `github.com/Mr-Aurevo-X/…` release, then runs `flatpak install` — **explicit action**, not automatic.
+- Discord / PayPal / Revolut and “Open release”: those operators’ sites, on click.
 
 ## 4. Governing law
 

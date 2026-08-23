@@ -12,9 +12,9 @@ Use is free for **non-commercial** purposes under `LICENSE`. Commercial resale, 
 
 You must keep copyright notices. You must not strip About / legal text.
 
-## 2. No automatic updates
+## 2. No silent installer
 
-The software is delivered as a standalone build. The publisher has **no obligation** to provide future versions. There is no in-app automatic installer. A notice may show a GitHub link; you copy-paste the command yourself.
+The software is delivered as a standalone build. The publisher has **no obligation** to provide future versions. Nothing installs at startup: a notice may show a GitHub link and copy-paste commands. The **Install** button, if you click it, downloads a GitHub `.flatpak` and installs it — explicit action.
 
 ## 3. As-is
 
