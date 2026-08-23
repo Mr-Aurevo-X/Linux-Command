@@ -4,7 +4,7 @@
     "id": "mr-aurevo-x-linux",
     "name": "Mr-Aurevo-X Linux Platform",
     "commander_app": "org.mraurevox.LinuxCommand",
-    "windows_pairing": "Linux uniquement",
+    "windows_pairing": "PC Command",
     "updated": "2026-08-23"
   },
   "hubs": [
@@ -96,8 +96,8 @@
       "name": "Linux Command",
       "role": "launcher",
       "lifecycle": "active",
-      "description_fr": "Poste de commandement optionnel — lance les hubs, install copier-coller.",
-      "description_en": "Optional command center — launch hubs, copy-paste install.",
+      "description_fr": "Poste de commandement optionnel — lance les hubs, lien dépôt GitHub.",
+      "description_en": "Optional command center — launch hubs, GitHub repo link.",
       "version": "0.2.6",
       "flatpak_url": "https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.6/org.mraurevox.LinuxCommand.flatpak",
       "release_repo": "Mr-Aurevo-X/Linux-Command",
@@ -115,8 +115,8 @@
       "lifecycle": "active",
       "description_fr": "Gestion système — modules Gest migrés.",
       "description_en": "System management — migrated Gest modules.",
-      "version": "1.1.3",
-      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Systeme-Linux/releases/download/v1.1.3/org.mraurevox.HubSysteme.flatpak",
+      "version": "1.1.4",
+      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Systeme-Linux/releases/download/v1.1.4/org.mraurevox.HubSysteme.flatpak",
       "release_repo": "Mr-Aurevo-X/Hub-Systeme-Linux",
       "data_paths": [
         "~/.config/Mr-Aurevo-X/hubs/systeme"
@@ -132,8 +132,8 @@
       "lifecycle": "active",
       "description_fr": "Réseau, flotte, diagnostic.",
       "description_en": "Network, fleet, diagnostics.",
-      "version": "1.3.4",
-      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Reseau-Linux/releases/download/v1.3.4/org.mraurevox.HubReseau.flatpak",
+      "version": "1.3.5",
+      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Reseau-Linux/releases/download/v1.3.5/org.mraurevox.HubReseau.flatpak",
       "release_repo": "Mr-Aurevo-X/Hub-Reseau-Linux",
       "data_paths": [
         "~/.config/Mr-Aurevo-X/hubs/reseau"
@@ -149,8 +149,8 @@
       "lifecycle": "active",
       "description_fr": "Audit, secrets, permissions.",
       "description_en": "Audit, secrets, permissions.",
-      "version": "1.3.3",
-      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Securite-Linux/releases/download/v1.3.3/org.mraurevox.HubSecurite.flatpak",
+      "version": "1.3.4",
+      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Securite-Linux/releases/download/v1.3.4/org.mraurevox.HubSecurite.flatpak",
       "release_repo": "Mr-Aurevo-X/Hub-Securite-Linux",
       "data_paths": [
         "~/.config/Mr-Aurevo-X/hubs/securite"
@@ -166,8 +166,8 @@
       "lifecycle": "active",
       "description_fr": "Boîte à outils — Kit migré (hors dev).",
       "description_en": "Toolbox — migrated Kit (non-dev tools).",
-      "version": "1.1.4",
-      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Utilitaires-Linux/releases/download/v1.1.4/org.mraurevox.HubUtilitaires.flatpak",
+      "version": "1.1.5",
+      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Utilitaires-Linux/releases/download/v1.1.5/org.mraurevox.HubUtilitaires.flatpak",
       "release_repo": "Mr-Aurevo-X/Hub-Utilitaires-Linux",
       "data_paths": [
         "~/.config/Mr-Aurevo-X/hubs/utilitaires"
@@ -181,15 +181,32 @@
       "name": "Hub Dev",
       "role": "dev",
       "lifecycle": "active",
-      "description_fr": "Explorateur localhost, JSON, .env, snippets, diff.",
-      "description_en": "Localhost explorer, JSON, .env, snippets, diff.",
-      "version": "1.2.7",
-      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Dev-Linux/releases/download/v1.2.7/org.mraurevox.HubDev.flatpak",
+      "description_fr": "Loopback intégré (ex-LocalDock), JSON, .env, snippets, diff.",
+      "description_en": "Integrated loopback (ex-LocalDock), JSON, .env, snippets, diff.",
+      "version": "1.2.8",
+      "flatpak_url": "https://github.com/Mr-Aurevo-X/Hub-Dev-Linux/releases/download/v1.2.8/org.mraurevox.HubDev.flatpak",
       "release_repo": "Mr-Aurevo-X/Hub-Dev-Linux",
       "data_paths": [
         "~/.config/Mr-Aurevo-X/hubs/dev"
       ],
       "launch": "flatpak run org.mraurevox.HubDev",
+      "show_in_grid": false
+    },
+    {
+      "id": "org.mraurevox.LocalDock",
+      "hub": "dev",
+      "name": "LocalDock",
+      "role": "dev",
+      "lifecycle": "deprecated",
+      "description_fr": "Deprecated — utiliser Hub Dev.",
+      "description_en": "Deprecated — use Hub Dev.",
+      "version": "0.1.0",
+      "flatpak_url": "https://github.com/Mr-Aurevo-X/LocalDock/releases/latest/download/org.mraurevox.LocalDock.flatpak",
+      "release_repo": "Mr-Aurevo-X/LocalDock",
+      "data_paths": [
+        "~/.var/app/org.mraurevox.LocalDock"
+      ],
+      "launch": "flatpak run org.mraurevox.LocalDock",
       "show_in_grid": false
     }
   ],
