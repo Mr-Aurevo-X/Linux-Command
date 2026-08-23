@@ -294,7 +294,7 @@ mod tests {
             .expect("primary");
         assert!(primary.installed);
         assert_eq!(primary.installed_version.as_deref(), Some("1.2.1"));
-        assert_eq!(primary.catalog_version, "1.1.1");
+        assert_eq!(primary.catalog_version, "1.1.2");
     }
 
     #[test]
