@@ -109,12 +109,13 @@ fn fetch_latest_json() -> Result<String, String> {
 
 pub fn allowlisted_release_url(raw: &str) -> Result<String, String> {
     let url = raw.trim();
-    if url.starts_with("https://github.com/Mr-Aurevo-X/")
-        && (url.contains("/releases") || url.contains("/releases/"))
-    {
-        return Ok(url.to_string());
+    let rest = url
+        .strip_prefix("https://github.com/Mr-Aurevo-X/")
+        .ok_or_else(|| "release url not allowlisted".to_string())?;
+    if rest.is_empty() || rest.contains("..") || rest.contains('\\') || rest.contains(' ') {
+        return Err("release url not allowlisted".into());
     }
-    Err("release url not allowlisted".into())
+    Ok(url.to_string())
 }
 
 fn normalize_version(raw: &str) -> String {
@@ -144,4 +145,22 @@ fn parse_version_parts(raw: &str) -> Vec<u32> {
     raw.split(|c| c == '.' || c == '-')
         .filter_map(|part| part.parse::<u32>().ok())
         .collect()
+}
+
+#[cfg(test)]
+mod tests {
+    use super::allowlisted_release_url;
+
+    #[test]
+    fn allows_repo_site_and_releases() {
+        assert!(
+            allowlisted_release_url("https://github.com/Mr-Aurevo-X/Hub-Systeme-Linux").is_ok()
+        );
+        assert!(allowlisted_release_url(
+            "https://github.com/Mr-Aurevo-X/Linux-Command/releases/latest"
+        )
+        .is_ok());
+        assert!(allowlisted_release_url("https://evil.example/foo").is_err());
+        assert!(allowlisted_release_url("https://github.com/Mr-Aurevo-X/../etc").is_err());
+    }
 }

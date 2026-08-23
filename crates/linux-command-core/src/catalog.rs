@@ -183,6 +183,23 @@ pub fn install_command(flatpak_url: &str) -> String {
     format!("flatpak install --user -y {flatpak_url}")
 }
 
+pub fn repo_site_url(release_repo: Option<&str>) -> Option<String> {
+    let repo = release_repo?.trim();
+    let mut parts = repo.split('/');
+    let owner = parts.next()?;
+    let name = parts.next()?;
+    if parts.next().is_some() || owner != "Mr-Aurevo-X" || name.is_empty() {
+        return None;
+    }
+    if !name
+        .chars()
+        .all(|c| c.is_ascii_alphanumeric() || matches!(c, '-' | '_'))
+    {
+        return None;
+    }
+    Some(format!("https://github.com/{owner}/{name}"))
+}
+
 fn resolve_primary_app(
     catalog: &Catalog,
     hub: &HubDef,
@@ -195,7 +212,7 @@ fn resolve_primary_app(
     }
     let installed_version = installed.get(app_id).cloned();
     let flatpak_url = app.flatpak_url.clone();
-    let install_command = flatpak_url.as_ref().map(|u| install_command(u));
+    let install_command = repo_site_url(app.release_repo.as_deref());
     Some(PrimaryAppStatus {
         id: app.id.clone(),
         name: app.name.clone(),
@@ -277,6 +294,40 @@ mod tests {
             .expect("primary");
         assert!(primary.installed);
         assert_eq!(primary.installed_version.as_deref(), Some("1.2.1"));
-        assert_eq!(primary.catalog_version, "1.0.0");
+        assert_eq!(primary.catalog_version, "1.1.1");
+    }
+
+    #[test]
+    fn snapshot_install_command_is_repo_site() {
+        let catalog = load_catalog_from_json(FIXTURE).expect("catalog");
+        let snapshot = build_platform_snapshot(&catalog, &HashMap::new());
+        let primary = snapshot
+            .hubs
+            .iter()
+            .find(|h| h.id == "systeme")
+            .expect("systeme hub")
+            .primary_app
+            .as_ref()
+            .expect("primary");
+        assert_eq!(
+            primary.install_command.as_deref(),
+            Some("https://github.com/Mr-Aurevo-X/Hub-Systeme-Linux")
+        );
+        assert!(!primary
+            .install_command
+            .as_deref()
+            .unwrap_or("")
+            .contains("flatpak"));
+    }
+
+    #[test]
+    fn repo_site_url_rejects_non_allowlisted() {
+        assert_eq!(
+            repo_site_url(Some("Mr-Aurevo-X/Hub-Systeme-Linux")).as_deref(),
+            Some("https://github.com/Mr-Aurevo-X/Hub-Systeme-Linux")
+        );
+        assert_eq!(repo_site_url(Some("evil/repo")), None);
+        assert_eq!(repo_site_url(Some("Mr-Aurevo-X/foo/bar")), None);
+        assert_eq!(repo_site_url(Some("")), None);
     }
 }

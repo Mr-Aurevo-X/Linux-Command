@@ -14,7 +14,7 @@ Conserver les mentions de copyright. Ne pas retirer les textes À propos / léga
 
 ## 2. Aucune installation silencieuse
 
-Le logiciel est livré autonome. L’éditeur n’a **aucune obligation** de versions futures. Pas d’install automatique au démarrage : une notification peut afficher un lien GitHub et des commandes à copier-coller. Le bouton **Installer**, si vous le cliquez, télécharge un `.flatpak` GitHub puis l’installe — action explicite.
+Le logiciel est livré autonome. L’éditeur n’a **aucune obligation** de versions futures. Pas d’install automatique au démarrage : une notification peut afficher un lien GitHub. Le bouton **Installer**, si vous le cliquez, ouvre le dépôt GitHub du hub — action explicite.
 
 ## 3. « En l’état »
 

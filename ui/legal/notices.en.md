@@ -6,7 +6,7 @@ Possible third-party components:
 - Rust / crates.io (each crate’s license)
 - Tauri 2
 - WebKitGTK (Linux)
-- curl (optional GitHub Latest check; `.flatpak` download if you click Install)
+- curl (optional GitHub Latest check; opening a GitHub repo if you click Install)
 
 Upstream licenses apply to those components.
 

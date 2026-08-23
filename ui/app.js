@@ -274,13 +274,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (state.pendingInstall?.install_command) copyText(state.pendingInstall.install_command);
   });
   els.btnRunInstall?.addEventListener("click", async () => {
-    const p = state.pendingInstall;
-    if (!p?.flatpak_url) return;
+    const url = state.pendingInstall?.install_command;
+    if (!url) return;
     els.installDialog?.close();
-    state.snapshot = await call("install_app", { flatpakUrl: p.flatpak_url });
-    setMessage(t("installOk", { name: p.name }), "ok");
-    renderKpis();
-    renderHubGrid();
+    await call("open_release", { url }).catch(() => {});
   });
   els.chkGithubUpdates?.addEventListener("change", async (ev) => {
     state.settings = await call("set_check_github_updates", { enabled: ev.target.checked });

@@ -6,7 +6,7 @@ Composants tiers possibles :
 - Rust / crates.io (licences de chaque crate)
 - Tauri 2
 - WebKitGTK (Linux)
-- curl (appel optionnel GitHub Latest ; téléchargement `.flatpak` si vous cliquez Installer)
+- curl (appel optionnel GitHub Latest ; ouverture d’un dépôt GitHub si vous cliquez Installer)
 
 Les licences amont s’appliquent à ces composants.
 
