@@ -1,7 +1,10 @@
 # Linux Command
 
-> **Dépôt privé** — le code et les assets restent privés. Ce README est prêt pour une ouverture publique.  
-> **Private repo** — source and release assets stay private. This README is written for a later public opening.
+> **WIP** — encore en développement. Pas une release publique.  
+> **WIP** — still in development. Not a public release.
+
+> **Dépôt privé** — le code et les assets restent privés.  
+> **Private repo** — source and release assets stay private.
 
 Commander optionnel (Tauri) de la plateforme Linux Mr-Aurevo-X : grille des hubs GTK, versions sur les tuiles, lancement local, install copier-coller. **Les hubs sont autonomes** — le launcher n’est pas obligatoire.
 
@@ -110,7 +113,7 @@ Texts: `ui/legal/` and `LICENSE`.
 
 - Version de chaque hub sur la tuile (lecture `VERSION` du lanceur local)
 - Lancement des hubs installés en local (App WIP / `~/.local/bin`)
-- README + `LICENSE` (PolyForm NC) prêts public ; dépôt **reste privé**
+- README + `LICENSE` (PolyForm NC) ; dépôt **WIP** / **reste privé**
 - Légal BE aligné sur le réseau réel (GitHub optionnel, pas « 100 % hors-ligne »)
 
 ## v0.2.0
