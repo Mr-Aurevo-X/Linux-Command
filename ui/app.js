@@ -11,11 +11,15 @@ const state = {
   aboutPaths: [],
   releaseUrl: "https://github.com/Mr-Aurevo-X/Linux-Command/releases/latest",
   pendingInstall: null,
+  localProfiles: [],
 };
 
 const els = {
   hubGrid: document.querySelector("#hubGrid"),
   btnRefresh: document.querySelector("#btnRefresh"),
+  profileRow: document.querySelector("#profileRow"),
+  btnProfileHubs: document.querySelector("#btnProfileHubs"),
+  btnProfileCommander: document.querySelector("#btnProfileCommander"),
   windowsPairing: document.querySelector("#windowsPairing"),
   kpiHubsActive: document.querySelector("#kpiHubsActive"),
   kpiAppsInstalled: document.querySelector("#kpiAppsInstalled"),
@@ -185,6 +189,28 @@ function renderHubGrid() {
   }
 }
 
+async function loadProfiles() {
+  try {
+    state.localProfiles = await call("get_local_profiles", {}, { silent: true });
+  } catch (_) {
+    state.localProfiles = [];
+  }
+  const has = Array.isArray(state.localProfiles) && state.localProfiles.length > 0;
+  if (els.profileRow) els.profileRow.hidden = !has;
+}
+
+function profileCommand(id) {
+  const row = (state.localProfiles || []).find((item) => item.id === id);
+  return row?.command || "";
+}
+
+async function copyProfile(id) {
+  const command = profileCommand(id);
+  if (!command) return;
+  await copyText(command);
+  setMessage(t("profileCopied"), "ok");
+}
+
 async function loadSnapshot() {
   state.snapshot = await call("get_platform_snapshot");
   renderKpis();
@@ -228,6 +254,8 @@ window.onLanguageChanged = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   els.btnRefresh?.addEventListener("click", () => loadSnapshot().catch(() => {}));
+  els.btnProfileHubs?.addEventListener("click", () => copyProfile("hubs"));
+  els.btnProfileCommander?.addEventListener("click", () => copyProfile("commander"));
   els.btnAbout?.addEventListener("click", async () => {
     await loadAbout();
     els.aboutDialog?.showModal();
@@ -272,5 +300,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-  loadSnapshot().then(() => checkUpdates()).catch(() => setMessage(t("errGeneric", { msg: "chargement" }), "error", true));
+  loadSnapshot()
+    .then(() => loadProfiles())
+    .then(() => checkUpdates())
+    .catch(() => setMessage(t("errGeneric", { msg: "chargement" }), "error", true));
 });

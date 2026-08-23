@@ -1,5 +1,6 @@
 pub mod catalog;
 pub mod flatpak;
+pub mod native;
 
 pub use catalog::{
     build_platform_snapshot, install_command, load_catalog_from_json, AppLifecycle, Catalog,

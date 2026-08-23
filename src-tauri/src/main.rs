@@ -6,6 +6,9 @@ use linux_command_core::{
     build_platform_snapshot, flatpak_is_installed, install_flatpak_bundle, launch_flatpak_app,
     list_installed_apps, PlatformSnapshot,
 };
+use linux_command_core::native::{
+    local_profile_commands, merge_native_installed, native_launcher_path,
+};
 use serde::Serialize;
 use std::fs;
 use std::path::PathBuf;
@@ -24,9 +27,15 @@ fn strip_host_gtk_modules() {
     std::env::remove_var("GTK3_MODULES");
 }
 
+fn home_dir() -> CommandResult<PathBuf> {
+    std::env::var_os("HOME")
+        .map(PathBuf::from)
+        .ok_or_else(|| "$HOME is not set".into())
+}
+
 fn platform_snapshot() -> CommandResult<PlatformSnapshot> {
     let catalog = catalog_loader::load_catalog().map_err(|err| err.to_string())?;
-    let installed = list_installed_apps();
+    let installed = merge_native_installed(&home_dir()?, list_installed_apps());
     Ok(build_platform_snapshot(&catalog, &installed))
 }
 
@@ -35,12 +44,39 @@ fn get_platform_snapshot() -> CommandResult<PlatformSnapshot> {
     platform_snapshot()
 }
 
+fn launch_native(path: &std::path::Path) -> CommandResult<()> {
+    Command::new(path)
+        .stdin(std::process::Stdio::null())
+        .stdout(std::process::Stdio::null())
+        .stderr(std::process::Stdio::null())
+        .spawn()
+        .map_err(|err| err.to_string())?;
+    Ok(())
+}
+
 #[tauri::command]
 fn launch_app(app_id: String) -> CommandResult<()> {
-    if !flatpak_is_installed(&app_id) {
-        return Err(format!("app not installed: {app_id}"));
+    if flatpak_is_installed(&app_id) {
+        return launch_flatpak_app(&app_id);
     }
-    launch_flatpak_app(&app_id)
+    if let Some(path) = native_launcher_path(&home_dir()?, &app_id) {
+        return launch_native(&path);
+    }
+    Err(format!("app not installed: {app_id}"))
+}
+
+#[derive(Debug, Clone, Serialize)]
+struct LocalProfile {
+    id: String,
+    command: String,
+}
+
+#[tauri::command]
+fn get_local_profiles() -> CommandResult<Vec<LocalProfile>> {
+    Ok(local_profile_commands(&home_dir()?)
+        .into_iter()
+        .map(|(id, command)| LocalProfile { id, command })
+        .collect())
 }
 
 #[tauri::command]
@@ -215,6 +251,7 @@ fn main() {
             get_app_version,
             check_github_latest,
             get_about_local_paths,
+            get_local_profiles,
         ])
         .run(tauri::generate_context!())
         .expect("run Linux Command Tauri application");
