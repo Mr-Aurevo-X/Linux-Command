@@ -199,7 +199,16 @@ function renderHubGrid() {
     const version = hubVersionLabel(primary);
     if (version) top.append(tag("span", "hub-tile-version", version));
     tile.append(top);
-    tile.append(tag("h3", "hub-tile-title", hubLabel(hub)));
+    const brand = tag("div", "hub-tile-brand");
+    if (hub.id) {
+      const icon = document.createElement("img");
+      icon.className = "hub-tile-icon";
+      icon.alt = "";
+      icon.src = `icons/${hub.id}.svg`;
+      brand.append(icon);
+    }
+    brand.append(tag("h3", "hub-tile-title", hubLabel(hub)));
+    tile.append(brand);
     const desc = hubDescription(hub);
     if (desc) tile.append(tag("p", "hub-tile-desc", desc));
     tile.setAttribute("aria-label", version ? `${hubLabel(hub)} ${version}` : hubLabel(hub));

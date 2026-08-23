@@ -694,6 +694,19 @@ h2 {
   border-radius: 4px;
 }
 
+.hub-tile-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.hub-tile-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border-radius: 12px;
+}
+
 .hub-tile-title {
   margin: 0;
   font-size: 1.2rem;
