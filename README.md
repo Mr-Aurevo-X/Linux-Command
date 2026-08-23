@@ -5,7 +5,7 @@
 
 Commander optionnel (Tauri) de la plateforme Linux Mr-Aurevo-X : grille des hubs GTK, versions sur les tuiles, lancement local. **Les hubs sont autonomes** — le launcher n’est pas obligatoire.
 
-**0.2.4** — [releases](https://github.com/Mr-Aurevo-X/Linux-Command/releases) · PolyForm Noncommercial 1.0.0 · Linux uniquement
+**0.2.5** — [releases](https://github.com/Mr-Aurevo-X/Linux-Command/releases) · PolyForm Noncommercial 1.0.0 · Linux uniquement
 
 ---
 
@@ -17,10 +17,10 @@ Prérequis : [Flatpak](https://flatpak.org/setup/) + runtime GNOME 49 (installé
 
 ```bash
 wget -O org.mraurevox.LinuxCommand.flatpak \
-  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.4/org.mraurevox.LinuxCommand.flatpak
+  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.5/org.mraurevox.LinuxCommand.flatpak
 flatpak install --user -y --reinstall ./org.mraurevox.LinuxCommand.flatpak
 wget -O INSTALLER-RACCOURCI-FLATPAK.sh \
-  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.4/INSTALLER-RACCOURCI-FLATPAK.sh
+  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.5/INSTALLER-RACCOURCI-FLATPAK.sh
 bash ./INSTALLER-RACCOURCI-FLATPAK.sh
 flatpak run org.mraurevox.LinuxCommand
 ```
@@ -63,10 +63,10 @@ Optional Tauri commander for the Mr-Aurevo-X Linux platform: hub grid, per-tile 
 
 ```bash
 wget -O org.mraurevox.LinuxCommand.flatpak \
-  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.4/org.mraurevox.LinuxCommand.flatpak
+  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.5/org.mraurevox.LinuxCommand.flatpak
 flatpak install --user -y --reinstall ./org.mraurevox.LinuxCommand.flatpak
 wget -O INSTALLER-RACCOURCI-FLATPAK.sh \
-  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.4/INSTALLER-RACCOURCI-FLATPAK.sh
+  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.5/INSTALLER-RACCOURCI-FLATPAK.sh
 bash ./INSTALLER-RACCOURCI-FLATPAK.sh
 flatpak run org.mraurevox.LinuxCommand
 ```
@@ -101,6 +101,10 @@ Texts: [LEGAL.md](LEGAL.md) · `ui/legal/` · [LICENSE](LICENSE).
 
 ---
 
+## v0.2.5
+
+- Détection des hubs Flatpak depuis le sandbox (`flatpak-spawn --host`)
+
 ## v0.2.4
 
 - Bandeau « nouvelle version » : le JS lisait `html_url`, l’IPC envoie `htmlUrl`
@@ -126,7 +130,7 @@ Texts: [LEGAL.md](LEGAL.md) · `ui/legal/` · [LICENSE](LICENSE).
 ## v0.2.0
 
 - Première release plateforme : grille de hubs, catalogue, install copier-coller
-- **Pas d’asset Flatpak** sur ce tag — utiliser [v0.2.4](https://github.com/Mr-Aurevo-X/Linux-Command/releases/tag/v0.2.4)
+- **Pas d’asset Flatpak** sur ce tag — utiliser [v0.2.5](https://github.com/Mr-Aurevo-X/Linux-Command/releases/tag/v0.2.5)
 
 ---
 
