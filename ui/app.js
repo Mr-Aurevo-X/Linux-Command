@@ -107,6 +107,19 @@ function statusClass(status) {
   return "planned";
 }
 
+function normalizeVersion(raw) {
+  if (!raw) return "";
+  const version = String(raw).trim().replace(/^v/i, "");
+  if (!version || version.toLowerCase() === "local") return "";
+  return version;
+}
+
+function hubVersionLabel(primary) {
+  if (!primary) return "";
+  const version = normalizeVersion(primary.installed_version) || normalizeVersion(primary.catalog_version);
+  return version ? `v${version}` : "";
+}
+
 async function copyText(value) {
   try {
     await navigator.clipboard.writeText(value);
@@ -169,28 +182,27 @@ function renderHubGrid() {
   const hubs = state.snapshot?.hubs || [];
   for (const hub of hubs) {
     const primary = hub.primary_app;
-    const installed = primary?.installed;
+    const installed = Boolean(primary?.installed);
     const hasRelease = Boolean(primary?.install_command);
     const tile = tag("button", `hub-tile ${statusClass(hub.status)}`);
     tile.type = "button";
+    tile.classList.toggle("is-installed", installed);
     if (!hasRelease) tile.disabled = true;
     const statusText = installed
       ? t("installed")
       : hasRelease
         ? t("notInstalled")
         : t("noRelease");
-    tile.append(tag("span", "hub-tile-status", statusText));
+    const statusKind = installed ? "is-installed" : hasRelease ? "is-missing" : "is-none";
+    const top = tag("div", "hub-tile-top");
+    top.append(tag("span", `hub-tile-status ${statusKind}`, statusText));
+    const version = hubVersionLabel(primary);
+    if (version) top.append(tag("span", "hub-tile-version", version));
+    tile.append(top);
     tile.append(tag("h3", "hub-tile-title", hubLabel(hub)));
     const desc = hubDescription(hub);
     if (desc) tile.append(tag("p", "hub-tile-desc", desc));
-    const sub = primary
-      ? installed
-        ? `v${primary.installed_version || primary.catalog_version}`
-        : hasRelease
-          ? t("catalogVersion", { ver: primary.catalog_version || "?" })
-          : t("noRelease")
-      : t("noRelease");
-    tile.append(tag("span", "hub-tile-count", sub));
+    tile.setAttribute("aria-label", version ? `${hubLabel(hub)} ${version}` : hubLabel(hub));
     if (hasRelease) {
       tile.addEventListener("click", () => onHubTileClick(hub));
     }

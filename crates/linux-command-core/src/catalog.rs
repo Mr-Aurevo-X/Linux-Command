@@ -260,4 +260,23 @@ mod tests {
         let primary = systeme.primary_app.as_ref().expect("primary");
         assert_eq!(primary.id, "org.mraurevox.HubSysteme");
     }
+
+    #[test]
+    fn snapshot_exposes_installed_version() {
+        let catalog = load_catalog_from_json(FIXTURE).expect("catalog");
+        let mut installed = HashMap::new();
+        installed.insert("org.mraurevox.HubSysteme".into(), "1.2.1".into());
+        let snapshot = build_platform_snapshot(&catalog, &installed);
+        let primary = snapshot
+            .hubs
+            .iter()
+            .find(|h| h.id == "systeme")
+            .expect("systeme hub")
+            .primary_app
+            .as_ref()
+            .expect("primary");
+        assert!(primary.installed);
+        assert_eq!(primary.installed_version.as_deref(), Some("1.2.1"));
+        assert_eq!(primary.catalog_version, "1.0.0");
+    }
 }

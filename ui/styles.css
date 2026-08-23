@@ -621,14 +621,16 @@ h2 {
 }
 
 .hub-tile {
-  display: grid;
-  gap: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.55rem;
   text-align: left;
-  padding: 1rem;
+  padding: 0.85rem 0.9rem 1rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: color-mix(in srgb, var(--panel2) 90%, transparent);
-  min-height: 150px;
+  min-height: 0;
 }
 
 .hub-tile:hover:not(:disabled) {
@@ -640,25 +642,63 @@ h2 {
   opacity: 0.92;
 }
 
+.hub-tile.is-installed {
+  border-color: color-mix(in srgb, var(--ok) 28%, var(--line));
+}
+
+.hub-tile-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+}
+
 .hub-tile-status {
-  font-size: 0.72rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.45rem;
+  border-radius: 4px;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--muted);
+  background: color-mix(in srgb, var(--panel) 80%, transparent);
 }
 
-.hub-tile.active .hub-tile-status {
-  color: var(--ok);
+.hub-tile-status.is-installed {
+  color: #06140d;
+  background: var(--ok);
 }
 
-.hub-tile.planned .hub-tile-status {
+.hub-tile-status.is-missing {
   color: var(--warn);
+  background: var(--warn-soft);
+}
+
+.hub-tile-status.is-none {
+  color: var(--muted);
+  background: color-mix(in srgb, var(--panel) 70%, transparent);
+}
+
+.hub-tile-version {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  color: var(--cyan);
+  border: 1px solid color-mix(in srgb, var(--cyan) 35%, var(--line));
+  background: var(--cyan-soft);
+  padding: 0.16rem 0.45rem;
+  border-radius: 4px;
 }
 
 .hub-tile-title {
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .hub-tile-desc {
@@ -666,12 +706,11 @@ h2 {
   color: var(--muted);
   font-size: 0.86rem;
   line-height: 1.35;
-}
-
-.hub-tile-count {
-  margin-top: auto;
-  font-size: 0.78rem;
-  color: var(--cyan);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
 }
 
 .hub-header {
