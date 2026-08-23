@@ -1,7 +1,7 @@
 # Linux Command
 
-> **WIP** — encore en développement. Pas une release publique.  
-> **WIP** — still in development. Not a public release.
+> **WIP** — encore en développement.  
+> **WIP** — still in development.
 
 > **Dépôt privé** — le code et les assets restent privés.  
 > **Private repo** — source and release assets stay private.
