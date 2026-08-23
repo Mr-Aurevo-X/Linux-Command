@@ -161,14 +161,21 @@ function renderHubGrid() {
     const tile = tag("button", `hub-tile ${statusClass(hub.status)}`);
     tile.type = "button";
     if (!hasRelease) tile.disabled = true;
-    tile.append(tag("span", "hub-tile-status", installed ? t("installed") : statusLabel(hub.status)));
+    const statusText = installed
+      ? t("installed")
+      : hasRelease
+        ? t("notInstalled")
+        : t("noRelease");
+    tile.append(tag("span", "hub-tile-status", statusText));
     tile.append(tag("h3", "hub-tile-title", hubLabel(hub)));
     const desc = hubDescription(hub);
     if (desc) tile.append(tag("p", "hub-tile-desc", desc));
     const sub = primary
       ? installed
         ? `v${primary.installed_version || primary.catalog_version}`
-        : primary.name
+        : hasRelease
+          ? t("catalogVersion", { ver: primary.catalog_version || "?" })
+          : t("noRelease")
       : t("noRelease");
     tile.append(tag("span", "hub-tile-count", sub));
     if (hasRelease) {
