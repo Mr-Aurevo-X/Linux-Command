@@ -592,28 +592,6 @@ h2 {
   display: none;
 }
 
-.profile-row {
-  display: grid;
-  gap: 0.45rem;
-  margin: 0 0 0.85rem;
-  padding: 0.7rem 0.8rem;
-  border: 1px dashed var(--line);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--panel2) 80%, transparent);
-}
-
-.profile-hint {
-  margin: 0;
-  font-size: 0.85rem;
-  color: var(--muted, #9aa3ad);
-}
-
-.profile-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
 .hub-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));

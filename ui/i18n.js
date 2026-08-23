@@ -77,10 +77,6 @@ const DICT = {
     errGeneric: "Erreur : {msg}",
     launchOk: "{name} lancé.",
     installOk: "{name} installé.",
-    profilesHint: "Install locale (copie App WIP) — copier une commande, pas de Flatpak.",
-    profileHubs: "Copier : hubs locaux",
-    profileCommander: "Copier : hubs + commander",
-    profileCopied: "Commande copiée.",
   },
   en: {
     langSwitchAria: "Language",
@@ -156,10 +152,6 @@ const DICT = {
     errGeneric: "Error: {msg}",
     launchOk: "{name} launched.",
     installOk: "{name} installed.",
-    profilesHint: "Local install (App WIP copy) — copy a command, no Flatpak.",
-    profileHubs: "Copy: local hubs",
-    profileCommander: "Copy: hubs + commander",
-    profileCopied: "Command copied.",
   },
 };
 
