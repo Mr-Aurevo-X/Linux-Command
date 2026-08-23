@@ -16,10 +16,11 @@ Commander optionnel (Tauri) de la plateforme Linux Mr-Aurevo-X : grille des hubs
 Prérequis : [Flatpak](https://flatpak.org/setup/) + runtime GNOME 49 (installé automatiquement depuis Flathub au premier `flatpak install`).
 
 ```bash
-wget -O org.mraurevox.LinuxCommand.flatpak \
+rm -f org.mraurevox.LinuxCommand.flatpak
+wget --no-continue -O org.mraurevox.LinuxCommand.flatpak \
   https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.5/org.mraurevox.LinuxCommand.flatpak
 flatpak install --user -y --reinstall ./org.mraurevox.LinuxCommand.flatpak
-wget -O INSTALLER-RACCOURCI-FLATPAK.sh \
+wget --no-continue -O INSTALLER-RACCOURCI-FLATPAK.sh \
   https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.5/INSTALLER-RACCOURCI-FLATPAK.sh
 bash ./INSTALLER-RACCOURCI-FLATPAK.sh
 flatpak run org.mraurevox.LinuxCommand
@@ -62,10 +63,11 @@ Optional Tauri commander for the Mr-Aurevo-X Linux platform: hub grid, per-tile 
 ### Install (Flatpak)
 
 ```bash
-wget -O org.mraurevox.LinuxCommand.flatpak \
+rm -f org.mraurevox.LinuxCommand.flatpak
+wget --no-continue -O org.mraurevox.LinuxCommand.flatpak \
   https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.5/org.mraurevox.LinuxCommand.flatpak
 flatpak install --user -y --reinstall ./org.mraurevox.LinuxCommand.flatpak
-wget -O INSTALLER-RACCOURCI-FLATPAK.sh \
+wget --no-continue -O INSTALLER-RACCOURCI-FLATPAK.sh \
   https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.5/INSTALLER-RACCOURCI-FLATPAK.sh
 bash ./INSTALLER-RACCOURCI-FLATPAK.sh
 flatpak run org.mraurevox.LinuxCommand
@@ -104,6 +106,7 @@ Texts: [LEGAL.md](LEGAL.md) · `ui/legal/` · [LICENSE](LICENSE).
 ## v0.2.5
 
 - Détection des hubs Flatpak depuis le sandbox (`flatpak-spawn --host`)
+- Install : `rm` + `wget --no-continue` (évite de réinstaller un vieux `.flatpak` local)
 
 ## v0.2.4
 
