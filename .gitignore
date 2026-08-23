@@ -1,4 +1,6 @@
 /target/
+/dist/
+.flatpak-builder/
 **/*.rs.bk
 .DS_Store
 .cursor/*

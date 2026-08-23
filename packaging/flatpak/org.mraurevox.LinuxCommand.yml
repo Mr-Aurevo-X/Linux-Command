@@ -4,7 +4,6 @@ runtime-version: "49"
 sdk: org.gnome.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
-  - org.freedesktop.Sdk.Extension.node20
 command: linux-command
 finish-args:
   - --share=ipc
@@ -30,7 +29,7 @@ modules:
     build-options:
       build-args:
         - --share=network
-      append-path: /usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/node20/bin
+      append-path: /usr/lib/sdk/rust-stable/bin
       env:
         CARGO_HOME: /run/build/linux-command/cargo
     build-commands:

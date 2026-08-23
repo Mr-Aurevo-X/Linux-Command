@@ -6,7 +6,7 @@ const invoke = window.__TAURI__?.core?.invoke;
 
 const state = {
   snapshot: null,
-  version: "0.2.0",
+  version: "0.2.1",
   settings: { language: "fr", checkGithubUpdates: true },
   aboutPaths: [],
   releaseUrl: "https://github.com/Mr-Aurevo-X/Linux-Command/releases/latest",
