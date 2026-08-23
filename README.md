@@ -8,7 +8,7 @@
 
 Commander optionnel (Tauri) de la plateforme Linux Mr-Aurevo-X : grille des hubs GTK, versions sur les tuiles, lancement local, install copier-coller. **Les hubs sont autonomes** — le launcher n’est pas obligatoire.
 
-**Version 0.2.1** · PolyForm Noncommercial 1.0.0 · Linux uniquement
+**Version 0.2.2** · PolyForm Noncommercial 1.0.0 · Linux uniquement
 
 - GitHub : `Mr-Aurevo-X/Linux-Command` (**privé**)
 - Plateforme : [linux-platform](https://github.com/Mr-Aurevo-X/linux-platform) (privé)
@@ -108,6 +108,11 @@ Network: one GitHub Latest call at startup if the toggle is on; `.flatpak` downl
 Texts: `ui/legal/` and `LICENSE`.
 
 ---
+
+## v0.2.2
+
+- Icône commander (grille) + glyphes des hubs sur les tuiles
+- Catalogue aligné sur les Flatpak courants
 
 ## v0.2.1
 
