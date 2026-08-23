@@ -1734,7 +1734,7 @@ dependencies = [
 
 [[package]]
 name = "linux-command"
-version = "0.2.2"
+version = "0.2.3"
 dependencies = [
  "linux-command-core",
  "serde",
@@ -1746,7 +1746,7 @@ dependencies = [
 
 [[package]]
 name = "linux-command-core"
-version = "0.2.2"
+version = "0.2.3"
 dependencies = [
  "serde",
  "serde_json",

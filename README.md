@@ -3,9 +3,9 @@
 > **WIP** — encore en développement.  
 > **WIP** — still in development.
 
-Commander optionnel (Tauri) de la plateforme Linux Mr-Aurevo-X : grille des hubs GTK, versions sur les tuiles, lancement local, install copier-coller. **Les hubs sont autonomes** — le launcher n’est pas obligatoire.
+Commander optionnel (Tauri) de la plateforme Linux Mr-Aurevo-X : grille des hubs GTK, versions sur les tuiles, lancement local. **Les hubs sont autonomes** — le launcher n’est pas obligatoire.
 
-**0.2.2** — [releases](https://github.com/Mr-Aurevo-X/Linux-Command/releases) · PolyForm Noncommercial 1.0.0 · Linux uniquement
+**0.2.3** — [releases](https://github.com/Mr-Aurevo-X/Linux-Command/releases) · PolyForm Noncommercial 1.0.0 · Linux uniquement
 
 ---
 
@@ -17,10 +17,10 @@ Prérequis : [Flatpak](https://flatpak.org/setup/) + runtime GNOME 49 (installé
 
 ```bash
 wget -O org.mraurevox.LinuxCommand.flatpak \
-  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.2/org.mraurevox.LinuxCommand.flatpak
+  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.3/org.mraurevox.LinuxCommand.flatpak
 flatpak install --user -y --reinstall ./org.mraurevox.LinuxCommand.flatpak
 wget -O INSTALLER-RACCOURCI-FLATPAK.sh \
-  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.2/INSTALLER-RACCOURCI-FLATPAK.sh
+  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.3/INSTALLER-RACCOURCI-FLATPAK.sh
 bash ./INSTALLER-RACCOURCI-FLATPAK.sh
 flatpak run org.mraurevox.LinuxCommand
 ```
@@ -30,7 +30,7 @@ flatpak run org.mraurevox.LinuxCommand
 - Grille **Système · Réseau · Sécurité · Utilitaires · Dev**
 - Badge installé / non installé + **version réelle** de chaque hub (Flatpak ou `VERSION` local)
 - Clic : lance le hub (Flatpak ou lanceur `~/.local/bin/hub-*`)
-- Install : commande à copier, ou bouton Installer (télécharge un `.flatpak` — **action explicite**)
+- Non installé : **URL du dépôt GitHub** (copier ou ouvrir) — pas de `flatpak install` distant
 - Vérif. GitHub Latest optionnelle (défaut on, désactivable dans À propos)
 - Pas de mise à jour automatique silencieuse, pas de télémétrie, pas de compte
 
@@ -49,7 +49,7 @@ bash "../linux-platform/scripts/install-local-wip.sh" --with-commander
 ### Confidentialité
 
 Local-first. Données : `~/.config/Mr-Aurevo-X/` et `~/.local/share/linux-command/`.  
-Réseau : 1 appel GitHub Latest au démarrage si le toggle est on ; téléchargement `.flatpak` seulement si vous cliquez Installer ; dons / release sur clic. Droit belge · RGPD.
+Réseau : 1 appel GitHub Latest au démarrage si le toggle est on ; Installer ouvre le dépôt du hub ; dons / release sur clic. Droit belge · RGPD.
 
 Textes : [LEGAL.md](LEGAL.md) · `ui/legal/` · [LICENSE](LICENSE).
 
@@ -57,16 +57,16 @@ Textes : [LEGAL.md](LEGAL.md) · `ui/legal/` · [LICENSE](LICENSE).
 
 ## English
 
-Optional Tauri commander for the Mr-Aurevo-X Linux platform: hub grid, per-tile versions, local launch, copy-paste install. **Hubs are standalone** — you do not need the launcher.
+Optional Tauri commander for the Mr-Aurevo-X Linux platform: hub grid, per-tile versions, local launch. **Hubs are standalone** — you do not need the launcher.
 
 ### Install (Flatpak)
 
 ```bash
 wget -O org.mraurevox.LinuxCommand.flatpak \
-  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.2/org.mraurevox.LinuxCommand.flatpak
+  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.3/org.mraurevox.LinuxCommand.flatpak
 flatpak install --user -y --reinstall ./org.mraurevox.LinuxCommand.flatpak
 wget -O INSTALLER-RACCOURCI-FLATPAK.sh \
-  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.2/INSTALLER-RACCOURCI-FLATPAK.sh
+  https://github.com/Mr-Aurevo-X/Linux-Command/releases/download/v0.2.3/INSTALLER-RACCOURCI-FLATPAK.sh
 bash ./INSTALLER-RACCOURCI-FLATPAK.sh
 flatpak run org.mraurevox.LinuxCommand
 ```
@@ -76,7 +76,7 @@ flatpak run org.mraurevox.LinuxCommand
 - Grid: **System · Network · Security · Utilities · Dev**
 - Installed / not-installed badge + **real version** per hub (Flatpak or local `VERSION`)
 - Click launches the hub (Flatpak or `~/.local/bin/hub-*`)
-- Install: copy-paste command, or Install button (downloads a `.flatpak` — **explicit action**)
+- Not installed: **GitHub repo URL** (copy or open) — no remote `flatpak install`
 - Optional GitHub Latest check (on by default, toggle in About)
 - No silent auto-update, no telemetry, no account
 
@@ -95,11 +95,17 @@ bash "../linux-platform/scripts/install-local-wip.sh" --with-commander
 ### Privacy
 
 Local-first. Data: `~/.config/Mr-Aurevo-X/` and `~/.local/share/linux-command/`.  
-Network: one GitHub Latest call at startup if the toggle is on; `.flatpak` download only if you click Install; donate / release on click. Belgian law · GDPR.
+Network: one GitHub Latest call at startup if the toggle is on; Install opens the hub repo; donate / release on click. Belgian law · GDPR.
 
 Texts: [LEGAL.md](LEGAL.md) · `ui/legal/` · [LICENSE](LICENSE).
 
 ---
+
+## v0.2.3
+
+- Dialogue Install : URL du dépôt GitHub uniquement (plus de `flatpak install` distant)
+- Bandeau « Install locale / hubs locaux » retiré de la grille
+- Clé i18n `confirmCancel` manquante
 
 ## v0.2.2
 
@@ -116,7 +122,7 @@ Texts: [LEGAL.md](LEGAL.md) · `ui/legal/` · [LICENSE](LICENSE).
 ## v0.2.0
 
 - Première release plateforme : grille de hubs, catalogue, install copier-coller
-- **Pas d’asset Flatpak** sur ce tag — utiliser [v0.2.2](https://github.com/Mr-Aurevo-X/Linux-Command/releases/tag/v0.2.2)
+- **Pas d’asset Flatpak** sur ce tag — utiliser [v0.2.3](https://github.com/Mr-Aurevo-X/Linux-Command/releases/tag/v0.2.3)
 
 ---
 

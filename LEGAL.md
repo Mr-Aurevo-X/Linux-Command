@@ -7,10 +7,10 @@ Licence : [PolyForm Noncommercial 1.0.0](LICENSE). Usage non commercial.
 
 ## Conditions d’utilisation (CGU)
 
-1. Linux Command est un **launcher optionnel** (Tauri) : grille des hubs GTK, install copier-coller.
+1. Linux Command est un **launcher optionnel** (Tauri) : grille des hubs GTK, lien vers le dépôt du hub.
 2. Les hubs sont autonomes — ce launcher n’est pas obligatoire.
 3. Le logiciel est fourni « en l’état », sans garantie.
-4. Un clic **Installer** peut télécharger un `.flatpak` depuis GitHub — action explicite, pas d’install silencieuse.
+4. Un clic **Installer** ouvre le dépôt GitHub du hub — action explicite, pas de téléchargement ni d’install silencieuse.
 5. Vous êtes responsable des hubs que vous installez et lancez.
 
 ## Vie privée (RGPD)
@@ -19,7 +19,7 @@ Mr-Aurevo-X **ne collecte aucune donnée personnelle**. Pas de compte, pas de t�
 
 - Stockage local : `~/.config/Mr-Aurevo-X/` · `~/.local/share/linux-command/`
 - **Vérif. GitHub Latest** (À propos, activée par défaut, désactivable) : lecture seule. GitHub peut voir IP / User-Agent selon **sa** politique.
-- Téléchargement `.flatpak` seulement si vous cliquez Installer.
+- Installer ouvre le dépôt GitHub du hub (pas de téléchargement `.flatpak`).
 - Dons Discord / PayPal / Revolut : sites de ces opérateurs, sur clic.
 
 Droit belge.
@@ -35,10 +35,10 @@ License: [PolyForm Noncommercial 1.0.0](LICENSE). Noncommercial use.
 
 ## Terms of use
 
-1. Linux Command is an **optional launcher** (Tauri): GTK hub grid, copy-paste install.
+1. Linux Command is an **optional launcher** (Tauri): GTK hub grid, link to the hub repo.
 2. Hubs are standalone — you do not need this launcher.
 3. The software is provided “as is”, without warranty.
-4. An **Install** click may download a `.flatpak` from GitHub — explicit action, no silent install.
+4. An **Install** click opens the hub’s GitHub repo — explicit action, no download and no silent install.
 5. You are responsible for the hubs you install and run.
 
 ## Privacy (GDPR)
@@ -47,7 +47,7 @@ Mr-Aurevo-X **collects no personal data**. No account, no telemetry.
 
 - Local storage: `~/.config/Mr-Aurevo-X/` · `~/.local/share/linux-command/`
 - **GitHub Latest check** (About, on by default, can be disabled): read-only. GitHub may see IP / User-Agent under **its** policy.
-- `.flatpak` download only if you click Install.
+- Install opens the hub’s GitHub repo (no `.flatpak` download).
 - Donate links (Discord / PayPal / Revolut): those operators’ sites, on click.
 
 Belgian law.
