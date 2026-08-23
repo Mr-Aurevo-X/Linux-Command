@@ -149,7 +149,38 @@ fn parse_version_parts(raw: &str) -> Vec<u32> {
 
 #[cfg(test)]
 mod tests {
-    use super::allowlisted_release_url;
+    use super::{allowlisted_release_url, is_remote_newer, parse_latest_body, LatestCheck, PRODUCT_REPO};
+
+    #[test]
+    fn remote_semver_is_newer() {
+        assert!(is_remote_newer("0.2.3", "0.2.2"));
+        assert!(!is_remote_newer("0.2.3", "0.2.3"));
+        assert!(!is_remote_newer("0.2.2", "0.2.3"));
+    }
+
+    #[test]
+    fn parse_marks_newer_when_tag_ahead() {
+        let body = r#"{"tag_name":"v0.2.3","html_url":"https://github.com/Mr-Aurevo-X/Linux-Command/releases/tag/v0.2.3"}"#;
+        let check = parse_latest_body(body, "0.2.2").expect("parse");
+        assert!(check.newer);
+        assert_eq!(check.remote, "0.2.3");
+    }
+
+    #[test]
+    fn latest_check_serializes_html_url_as_camel_case() {
+        let check = LatestCheck {
+            ok: true,
+            skipped: false,
+            newer: true,
+            local: "0.2.2".into(),
+            remote: "0.2.3".into(),
+            html_url: "https://github.com/Mr-Aurevo-X/Linux-Command/releases/tag/v0.2.3".into(),
+            repo: PRODUCT_REPO.into(),
+        };
+        let json = serde_json::to_value(&check).expect("json");
+        assert!(json.get("htmlUrl").is_some(), "UI reads check.htmlUrl");
+        assert!(json.get("html_url").is_none());
+    }
 
     #[test]
     fn allows_repo_site_and_releases() {

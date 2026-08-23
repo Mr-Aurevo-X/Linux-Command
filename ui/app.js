@@ -6,7 +6,7 @@ const invoke = window.__TAURI__?.core?.invoke;
 
 const state = {
   snapshot: null,
-  version: "0.2.3",
+  version: "0.2.4",
   settings: { language: "fr", checkGithubUpdates: true },
   aboutPaths: [],
   releaseUrl: "https://github.com/Mr-Aurevo-X/Linux-Command/releases/latest",
@@ -239,14 +239,17 @@ async function loadAbout() {
   }
 }
 
+function githubReleaseUrl(check) {
+  return check?.htmlUrl || check?.html_url || state.releaseUrl;
+}
+
 async function checkUpdates() {
   try {
     const check = await call("check_github_latest", {}, { silent: true });
-    if (check?.newer && check.html_url) {
-      state.releaseUrl = check.html_url;
-      els.updateDetail.textContent = t("releaseMsg", { ver: check.remote });
-      els.updateBanner.hidden = false;
-    }
+    if (!check?.newer) return;
+    state.releaseUrl = githubReleaseUrl(check);
+    els.updateDetail.textContent = t("releaseMsg", { ver: check.remote });
+    els.updateBanner.hidden = false;
   } catch (_) {
     /* silent */
   }
@@ -307,7 +310,6 @@ document.addEventListener("DOMContentLoaded", () => {
       applyTitlebar();
     })
     .catch(() => {});
-  loadSnapshot()
-    .then(() => checkUpdates())
-    .catch(() => setMessage(t("errGeneric", { msg: "chargement" }), "error", true));
+  loadSnapshot().catch(() => setMessage(t("errGeneric", { msg: "chargement" }), "error", true));
+  checkUpdates();
 });
