@@ -12,6 +12,6 @@ Contact / repo: https://github.com/Mr-Aurevo-X/Linux-Command
 
 Software is free for non-commercial use (`LICENSE`), with no silent installer. Clicking Install opens the hub’s GitHub repository.
 
-Optional support: Discord, PayPal, Revolut.
+Optional support: Discord, crypto (in-app).
 
 Belgian law.

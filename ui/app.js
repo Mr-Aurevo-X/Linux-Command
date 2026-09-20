@@ -47,6 +47,28 @@ function requireInvoke() {
   return invoke;
 }
 
+function renderCryptoWallets() {
+  const root = document.querySelector("#cryptoWallets");
+  const wallets = window.CRYPTO_WALLETS;
+  if (!root || !Array.isArray(wallets)) return;
+  root.replaceChildren();
+  for (const wallet of wallets) {
+    const row = document.createElement("div");
+    row.className = "hub-crypto-row";
+    const label = document.createElement("span");
+    label.className = "hub-crypto-label";
+    label.textContent = `${wallet.symbol} — ${wallet.name}`;
+    label.title = wallet.address;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "hub-support-btn hub-crypto-copy";
+    btn.textContent = t("cryptoCopy");
+    btn.addEventListener("click", () => copyText(wallet.address));
+    row.append(label, btn);
+    root.append(row);
+  }
+}
+
 function setMessage(text, kind = "info", sticky = false) {
   els.message.textContent = text;
   els.message.classList.toggle("error", kind === "error");
@@ -258,6 +280,7 @@ async function checkUpdates() {
 window.onLanguageChanged = () => {
   renderKpis();
   renderHubGrid();
+  renderCryptoWallets();
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -303,6 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+  renderCryptoWallets();
   applyTitlebar();
   call("get_app_version", {}, { silent: true })
     .then((ver) => {

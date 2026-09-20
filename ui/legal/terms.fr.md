@@ -26,7 +26,7 @@ Linux Command lance des hubs et commandes **locales** sur cette machine Linux. V
 
 ## 5. Soutien facultatif
 
-Liens Discord, PayPal, Revolut : **volontaires**. Un don n’achète ni support ni mises à jour.
+Liens Discord, crypto (in-app) : **volontaires**. Un don n’achète ni support ni mises à jour.
 
 ## 6. Inner-source fermé
 

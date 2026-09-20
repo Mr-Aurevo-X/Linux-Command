@@ -99,8 +99,6 @@ fn install_app(flatpak_url: String) -> CommandResult<PlatformSnapshot> {
 fn open_support(kind: String) -> CommandResult<()> {
     let url = match kind.trim().to_ascii_lowercase().as_str() {
         "discord" => "https://discord.com/users/406891052516114442",
-        "paypal" => "https://www.paypal.com/paypalme/aurevo1",
-        "revolut" => "https://revolut.me/mr_aurevo_x",
         "github" => "https://github.com/Mr-Aurevo-X",
         _ => return Err("unsupported support link".into()),
     };

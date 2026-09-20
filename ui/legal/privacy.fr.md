@@ -17,7 +17,7 @@ Linux Command n’ouvre pas de portail HTTP. Les hubs lancés restent des proces
 
 - Vérif. optionnelle GitHub Latest (toggle dans À propos, **activée par défaut**) — un appel API au démarrage, lecture seule, pas d’install silencieuse.
 - Bouton **Installer** : ouvre le dépôt GitHub du hub (`github.com/Mr-Aurevo-X/…`) — **action explicite**, pas de téléchargement automatique.
-- Boutons Discord / PayPal / Revolut et « Ouvrir la release » : sites de ces opérateurs, sur clic.
+- Boutons Discord / crypto (in-app) et « Ouvrir la release » : sites de ces opérateurs, sur clic.
 
 ## 4. Droit applicable
 

@@ -20,7 +20,7 @@ Mr-Aurevo-X **ne collecte aucune donnée personnelle**. Pas de compte, pas de t�
 - Stockage local : `~/.config/Mr-Aurevo-X/` · `~/.local/share/linux-command/`
 - **Vérif. GitHub Latest** (À propos, activée par défaut, désactivable) : lecture seule. GitHub peut voir IP / User-Agent selon **sa** politique.
 - Installer ouvre le dépôt GitHub du hub (pas de téléchargement `.flatpak`).
-- Dons Discord / PayPal / Revolut : sites de ces opérateurs, sur clic.
+- Dons Discord / crypto (in-app) : sites de ces opérateurs, sur clic.
 
 Droit belge.
 
@@ -48,7 +48,7 @@ Mr-Aurevo-X **collects no personal data**. No account, no telemetry.
 - Local storage: `~/.config/Mr-Aurevo-X/` · `~/.local/share/linux-command/`
 - **GitHub Latest check** (About, on by default, can be disabled): read-only. GitHub may see IP / User-Agent under **its** policy.
 - Install opens the hub’s GitHub repo (no `.flatpak` download).
-- Donate links (Discord / PayPal / Revolut): those operators’ sites, on click.
+- Donate links (Discord / crypto (in-app)): those operators’ sites, on click.
 
 Belgian law.
 

@@ -17,7 +17,7 @@ Linux Command opens no HTTP portal. Launched hubs stay local processes.
 
 - Optional GitHub Latest check (toggle in About, **on by default**) — one API call at startup, read-only, no silent install.
 - **Install** button: opens the hub’s GitHub repository (`github.com/Mr-Aurevo-X/…`) — **explicit action**, no automatic download.
-- Discord / PayPal / Revolut and “Open release”: those operators’ sites, on click.
+- Discord / crypto (in-app) and “Open release”: those operators’ sites, on click.
 
 ## 4. Governing law
 
