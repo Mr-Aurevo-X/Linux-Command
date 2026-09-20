@@ -26,7 +26,7 @@ Linux Command starts **local** Linux hubs and commands on this machine. You conf
 
 ## 5. Optional support
 
-Discord, PayPal, and Revolut links are **voluntary**. Donations do not buy support or updates.
+Discord and in-app crypto addresses are **voluntary**. Donations do not buy support or updates.
 
 ## 6. Closed inner-source
 
